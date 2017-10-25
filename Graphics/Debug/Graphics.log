@@ -4,5 +4,9 @@ c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.c
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(62): warning C4305: '+=': truncation from 'double' to 'float'
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(67): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(145): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  main.cpp
+  Generating Code...
   Graphics.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.exe
   Graphics.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.pdb (Partial PDB)

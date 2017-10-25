@@ -1,6 +1,11 @@
-﻿  Window.cpp
-  Engine.cpp
-  Camera2D.cpp
+﻿  Sprite.cpp
+c:\users\axel\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\axel\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\axel\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\axel\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Compiling...
+  GLSLProgram.cpp
   Generating Code...
 glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
 glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library

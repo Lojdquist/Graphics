@@ -2,6 +2,7 @@
 #include <string>
 #include <GL/glew.h>
 namespace Engine {
+
 	class GLSLProgram
 	{
 	public:
