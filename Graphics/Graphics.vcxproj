@@ -73,6 +73,10 @@
     <IncludePath>$(SolutionDir)deps/include/;$(SolutionDir);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)deps/lib/;$(SolutionDir)Debug/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Engine;C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\deps\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\deps\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
