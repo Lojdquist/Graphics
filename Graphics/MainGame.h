@@ -14,6 +14,8 @@
 
 #include <vector>
 
+#include "Bullet.h"
+
 enum class GameState { PLAY, EXIT };
 
 class MainGame
@@ -44,6 +46,7 @@ private:
 	Engine::InputManager _inputManager;
 	Engine::FpsLimiter _fpsLimiter;
 	
+	std::vector<Bullet> _bullets;
 	
 
 	float _time;

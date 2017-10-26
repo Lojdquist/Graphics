@@ -1,8 +1,7 @@
 ﻿  MainGame.cpp
 c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(58): warning C4305: '+=': truncation from 'double' to 'float'
-  Generating Code...
-  Compiling...
-  main.cpp
-  Generating Code...
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(63): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(98): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(186): warning C4018: '<': signed/unsigned mismatch
   Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.exe
   Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.pdb (Partial PDB)
