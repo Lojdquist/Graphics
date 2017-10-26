@@ -8,6 +8,7 @@
 #include <Engine/GLTexture.h>
 #include <Engine/Window.h>
 #include <Engine/Camera2D.h>
+#include <Engine\SpriteBatch.h>
 
 #include <vector>
 
@@ -35,9 +36,11 @@ private:
 	GameState _gameState;
 
 	Engine::Camera2D _camera;
-
-	std::vector<Engine::Sprite *> _sprites;
 	Engine::GLSLProgram _colorProgram;
+
+	Engine::SpriteBatch _spriteBatch;
+	
+	
 
 	float _time;
 

@@ -1,8 +1,5 @@
 ﻿  MainGame.cpp
-c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(62): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(67): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(145): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(60): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
   Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.exe
   Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.pdb (Partial PDB)

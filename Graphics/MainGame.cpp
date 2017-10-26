@@ -1,6 +1,7 @@
 #include "MainGame.h"
 #include <Engine/Errors.h>
 #include <Engine/Timing.h>
+#include <Engine/ResourceManager.h>
 
 #include <iostream>
 #include <string>
@@ -23,11 +24,6 @@ MainGame::~MainGame()
 void MainGame::run() {
 	initSystems();
 
-	_sprites.push_back(new Engine::Sprite());
-	_sprites.back()->init(-_screenWidth / 2,  -_screenHeight/2, _screenWidth/2, _screenWidth / 2, "Textures/PNG/CharacterRight_Standing.png");
-
-	_sprites.push_back(new Engine::Sprite());
-	_sprites.back()->init( 0.0f, -_screenHeight/2, _screenWidth/2, _screenWidth/2, "Textures/PNG/CharacterRight_Standing.png");
 
 	gameLoop();
 }
@@ -38,6 +34,8 @@ void MainGame::initSystems() {
 	_window.create("Game Engine", _screenWidth, _screenHeight, 0);
 
 	initShaders();
+	_spriteBatch.init();
+
 }
 
 void MainGame::initShaders() {
@@ -65,7 +63,7 @@ void MainGame::gameLoop() {
 
 		drawGame();
 		int test = limiter.end();
-		
+		std::cout << test << std::endl;
 	}
 }
 
@@ -125,30 +123,56 @@ void MainGame::processInput() {
 }
 
 void MainGame::drawGame() {
-
+	//Set te base depth to 1.0
 	glClearDepth(1.0);
+	//Clear the color and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	_colorProgram.use();
-	glActiveTexture(GL_TEXTURE0);
 
+	//Enable Shader
+	_colorProgram.use();
+	//We are using texture unit 0
+	glActiveTexture(GL_TEXTURE0);
+	//Get the uniformlocation
 	GLint textureLocation = _colorProgram.getUniformLocation("mySampler");
+	//Tell the shader that the texture is texture unit 0
 	glUniform1i(textureLocation, 0);
 
+	//Set the constantly chaging time variable
 	GLint timeLocation = _colorProgram.getUniformLocation("time");
 	glUniform1f(timeLocation, _time);
 
+	//set the camera matrix
 	GLint pLocation = _colorProgram.getUniformLocation("P");
 	glm::mat4 cameraMatrix = _camera.getCameraMatrix();
 	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
-	for (int i = 0; i < _sprites.size(); i++) {
-		_sprites[i]->draw();
+	_spriteBatch.begin();
+
+	glm::vec4 pos(0.0f, 0.0f, 50.0f, 50.0f);
+	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
+	static Engine::GLTexture texture = Engine::ResourceManager::getTexture("Textures/PNG/CharacterLeft_Jump.png");
+	Engine::Color color;
+	color.r = 255;
+	color.g = 255;
+	color.b = 255;
+	color.a = 255;
+
+
+	for (int i = 0; i < 1000; i++) {
+		_spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
+		_spriteBatch.draw(pos + glm::vec4(50.0f, 0.0f, 0.0f, 0.0f), uv, texture.id, 0.0f, color);
 	}
+	
+	_spriteBatch.end();
+	_spriteBatch.renderBatch();
 
+
+	//Unbind texture
 	glBindTexture(GL_TEXTURE_2D, 0);
+	//Disable the shader
 	_colorProgram.unuse();
-
+	//Swap our buffer and draw everything to the screen
 	_window.swapBuffer();
 
 }
