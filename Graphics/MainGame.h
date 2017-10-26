@@ -8,7 +8,9 @@
 #include <Engine/GLTexture.h>
 #include <Engine/Window.h>
 #include <Engine/Camera2D.h>
-#include <Engine\SpriteBatch.h>
+#include <Engine/SpriteBatch.h>
+#include <Engine/InputManager.h>
+#include <Engine/Timing.h>
 
 #include <vector>
 
@@ -39,9 +41,13 @@ private:
 	Engine::GLSLProgram _colorProgram;
 
 	Engine::SpriteBatch _spriteBatch;
+	Engine::InputManager _inputManager;
+	Engine::FpsLimiter _fpsLimiter;
 	
 	
 
 	float _time;
+	float _fps;
+	float _maxFPS;
 
 };
