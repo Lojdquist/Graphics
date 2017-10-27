@@ -1,0 +1,16 @@
+﻿  Window.cpp
+  Timing.cpp
+  TextureCache.cpp
+  Sprite.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\sprite.cpp(27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  ResourceManager.cpp
+  ImageLoader.cpp
+  GLSLProgram.cpp
+  Errors.cpp
+  Engine.cpp
+  Camera2D.cpp
+  Generating Code...
+  Engine.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\x64\Debug\Engine.lib

@@ -1,4 +1,5 @@
 ﻿  MainGame.cpp
+<<<<<<< HEAD
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(62): warning C4305: '+=': truncation from 'double' to 'float'
@@ -10,3 +11,12 @@ c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.c
   Generating Code...
   Graphics.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.exe
   Graphics.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.pdb (Partial PDB)
+=======
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(62): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(67): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.cpp(145): warning C4018: '<': signed/unsigned mismatch
+  Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.exe
+  Graphics.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Graphics.pdb (Partial PDB)
+>>>>>>> cd63e8defb34a00b6498aa7e491e9e42c5df6845

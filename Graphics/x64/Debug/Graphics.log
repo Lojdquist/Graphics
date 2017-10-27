@@ -1,5 +1,11 @@
 ﻿  main.cpp
+<<<<<<< HEAD
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.h(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
   MainGame.cpp
 c:\users\axel\documents\visual studio 2017\projects\graphics\graphics\maingame.h(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+=======
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.h(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  MainGame.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\graphics\maingame.h(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+>>>>>>> cd63e8defb34a00b6498aa7e491e9e42c5df6845
   Generating Code...

@@ -1,0 +1,21 @@
+﻿  Window.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\window.h(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  Timing.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\timing.cpp(3): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  TextureCache.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\gltexture.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  Sprite.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\sprite.h(2): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  ResourceManager.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\gltexture.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  ImageLoader.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\gltexture.h(2): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+  GLSLProgram.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.h(3): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+  Errors.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\errors.cpp(4): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  Engine.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\engine.cpp(2): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  Camera2D.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\engine\camera2d.h(2): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Generating Code...

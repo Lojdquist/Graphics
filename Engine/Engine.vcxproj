@@ -74,6 +74,10 @@
     <IncludePath>$(SolutionDir)deps/include/;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)deps/lib/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\deps\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\deps\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
@@ -146,6 +150,7 @@
     <ClCompile Include="picoPNG.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="SpriteBatch.cpp" />
     <ClCompile Include="TextureCache.cpp" />
     <ClCompile Include="Timing.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -161,6 +166,7 @@
     <ClInclude Include="picoPNG.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="SpriteBatch.h" />
     <ClInclude Include="TextureCache.h" />
     <ClInclude Include="Timing.h" />
     <ClInclude Include="Vertex.h" />
