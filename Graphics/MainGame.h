@@ -8,8 +8,13 @@
 #include <Engine/GLTexture.h>
 #include <Engine/Window.h>
 #include <Engine/Camera2D.h>
+#include <Engine/SpriteBatch.h>
+#include <Engine/InputManager.h>
+#include <Engine/Timing.h>
 
 #include <vector>
+
+#include "Bullet.h"
 
 enum class GameState { PLAY, EXIT };
 
@@ -35,10 +40,17 @@ private:
 	GameState _gameState;
 
 	Engine::Camera2D _camera;
-
-	std::vector<Engine::Sprite *> _sprites;
 	Engine::GLSLProgram _colorProgram;
 
+	Engine::SpriteBatch _spriteBatch;
+	Engine::InputManager _inputManager;
+	Engine::FpsLimiter _fpsLimiter;
+	
+	std::vector<Bullet> _bullets;
+	
+
 	float _time;
+	float _fps;
+	float _maxFPS;
 
 };

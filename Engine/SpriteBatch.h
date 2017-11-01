@@ -21,12 +21,18 @@ namespace Engine {
 		Vertex topLeft;
 		Vertex bottomLeft;
 		Vertex topRight;
-		Vertex BottomRight;
+		Vertex bottomRight;
 	};
 
 
 	class RenderBatch {
 
+	public:
+		RenderBatch(GLuint Offset, GLuint NumVertices, GLuint Texture) : offset(Offset),
+			numVertices(NumVertices), texture(Texture) {};
+		GLuint offset;
+		GLuint numVertices;
+		GLuint texture;
 
 	};
 
@@ -48,6 +54,7 @@ namespace Engine {
 
 
 	private:
+		void createRenderBatches();
 		void createVertexArray();
 		void sortGlyphs();
 
@@ -61,6 +68,7 @@ namespace Engine {
 		GlyphSortType _sortType;
 
 		std::vector<Glyph*> _glyphs;
+		std::vector<RenderBatch> _renderBatches;
 
 	};
 }

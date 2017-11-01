@@ -1,0 +1,4 @@
+﻿  ZombieGame.cpp
+  main.cpp
+  Generating Code...
+Engine.lib(Engine.obj) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'

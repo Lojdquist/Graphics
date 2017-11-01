@@ -1,0 +1,4 @@
+﻿  ZombieGame.cpp
+c:\users\axel\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(66): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+  ZombieGame.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
+  ZombieGame.vcxproj -> C:\Users\Axel\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.pdb (Partial PDB)

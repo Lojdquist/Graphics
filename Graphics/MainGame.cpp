@@ -1,6 +1,6 @@
 #include "MainGame.h"
 #include <Engine/Errors.h>
-#include <Engine/Timing.h>
+#include <Engine/ResourceManager.h>
 
 #include <iostream>
 #include <string>
@@ -9,7 +9,8 @@ MainGame::MainGame() :
 	_screenWidth(800),
 	_screenHeight(600),
 	_gameState(GameState::PLAY),
-	_time(0.0f) {
+	_time(0.0f),
+	_maxFPS(60.0f){
 
 	_camera.init(_screenWidth, _screenHeight);
 }
@@ -23,11 +24,6 @@ MainGame::~MainGame()
 void MainGame::run() {
 	initSystems();
 
-	_sprites.push_back(new Engine::Sprite());
-	_sprites.back()->init(-_screenWidth / 2,  -_screenHeight/2, _screenWidth/2, _screenWidth / 2, "Textures/PNG/CharacterRight_Standing.png");
-
-	_sprites.push_back(new Engine::Sprite());
-	_sprites.back()->init( 0.0f, -_screenHeight/2, _screenWidth/2, _screenWidth/2, "Textures/PNG/CharacterRight_Standing.png");
 
 	gameLoop();
 }
@@ -38,6 +34,9 @@ void MainGame::initSystems() {
 	_window.create("Game Engine", _screenWidth, _screenHeight, 0);
 
 	initShaders();
+	_spriteBatch.init();
+	_fpsLimiter.init(_maxFPS);
+
 }
 
 void MainGame::initShaders() {
@@ -51,28 +50,42 @@ void MainGame::initShaders() {
 
 void MainGame::gameLoop() {
 
-	Engine::FpsLimiter limiter;
-	limiter.setMaxFPS(60.0f);
-
 	while (_gameState != GameState::EXIT) {
 
-		limiter.begin();
+		_fpsLimiter.begin();
 
 		processInput();
-		_time += 0.01;
+		_time += 0.1;
 
 		_camera.update();
 
+		//update bullets
+		for (int i = 0; i < _bullets.size();) {
+			if (_bullets[i].update()) {
+				_bullets[i] = _bullets.back();
+				_bullets.pop_back();
+			}
+			else {
+				i++;
+			}
+		}
+
 		drawGame();
-		int test = limiter.end();
-		
+
+		_fps = _fpsLimiter.end();
+		static int frameCounter = 0;
+		frameCounter++;
+		if (frameCounter == 10000) {
+			std::cout << _fps << std::endl;
+			frameCounter = 0;
+		}
 	}
 }
 
 void MainGame::processInput() {
 	SDL_Event evnt;
 
-	const float CAMERA_SPEED = 20.0f;
+	const float CAMERA_SPEED = 2.0f;
 	const float SCALE_SPEED = 0.1f;
 
 	while (SDL_PollEvent(&evnt)) {
@@ -82,73 +95,107 @@ void MainGame::processInput() {
 			_gameState = GameState::EXIT;
 			break;
 		case SDL_MOUSEMOTION:
-			//std::cout << evnt.motion.x << " " << evnt.motion.y << std::endl;
+			_inputManager.setMouseCoords(evnt.motion.x, evnt.motion.y);
 			break;
 			
 		case SDL_KEYDOWN:
-
-			switch (evnt.key.keysym.sym)
-			{
-			case SDLK_w:
-				_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, CAMERA_SPEED));
-				break;
-
-			case SDLK_s:
-				_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
-				break;
-
-			case SDLK_a:
-				_camera.setPosition(_camera.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
-				break;
-
-			case SDLK_d:
-				_camera.setPosition(_camera.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
-				break;
-
-			case SDLK_q:
-				_camera.setScale(_camera.getScale() + SCALE_SPEED);
-				break;
-
-			case SDLK_e:
-				_camera.setScale(_camera.getScale() - SCALE_SPEED);
-				break;
-
-			default:
-				break;
-			}
+			_inputManager.pressKey(evnt.key.keysym.sym);
 			break;
 
+		case SDL_KEYUP:
+			_inputManager.releaseKey(evnt.key.keysym.sym);
+			break;
+
+		case SDL_MOUSEBUTTONDOWN:
+			_inputManager.pressKey(evnt.button.button);
+			break;
+
+		case SDL_MOUSEBUTTONUP:
+			_inputManager.releaseKey(evnt.button.button);
+			break;
 		default:
 			break;
 		}
 	}
+
+
+	if (_inputManager.isKeyPressed(SDLK_w)) {
+		_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, CAMERA_SPEED));
+	}
+	if (_inputManager.isKeyPressed(SDLK_s)) {
+		_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
+	}
+	if (_inputManager.isKeyPressed(SDLK_a)) {
+		_camera.setPosition(_camera.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
+	}
+	if (_inputManager.isKeyPressed(SDLK_d)) {
+		_camera.setPosition(_camera.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
+	}
+	if (_inputManager.isKeyPressed(SDLK_q)) {
+		_camera.setScale(_camera.getScale() + SCALE_SPEED);
+	}
+	if (_inputManager.isKeyPressed(SDLK_e)) {
+		_camera.setScale(_camera.getScale() - SCALE_SPEED);
+	}
+	if (_inputManager.isKeyPressed(SDL_BUTTON_LEFT)) {
+		glm::vec2 mouseCoords = _inputManager.getMouseCoords();
+		mouseCoords = _camera.convertScreenToWorld(mouseCoords);
+		
+		glm::vec2 playerPosition(0.0f);
+		glm::vec2 direction = mouseCoords - playerPosition;
+		direction = glm::normalize(direction);
+
+		_bullets.emplace_back(playerPosition, direction, 1.0f, 1000);
+	}
 }
 
 void MainGame::drawGame() {
-
+	//Set te base depth to 1.0
 	glClearDepth(1.0);
+	//Clear the color and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	_colorProgram.use();
-	glActiveTexture(GL_TEXTURE0);
 
+	//Enable Shader
+	_colorProgram.use();
+	//We are using texture unit 0
+	glActiveTexture(GL_TEXTURE0);
+	//Get the uniformlocation
 	GLint textureLocation = _colorProgram.getUniformLocation("mySampler");
+	//Tell the shader that the texture is texture unit 0
 	glUniform1i(textureLocation, 0);
 
-	GLint timeLocation = _colorProgram.getUniformLocation("time");
-	glUniform1f(timeLocation, _time);
-
+	//set the camera matrix
 	GLint pLocation = _colorProgram.getUniformLocation("P");
 	glm::mat4 cameraMatrix = _camera.getCameraMatrix();
 	glUniformMatrix4fv(pLocation, 1, GL_FALSE, &(cameraMatrix[0][0]));
 
-	for (int i = 0; i < _sprites.size(); i++) {
-		_sprites[i]->draw();
+	_spriteBatch.begin();
+
+	glm::vec4 pos(0.0f, 0.0f, 50.0f, 50.0f);
+	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
+	static Engine::GLTexture texture = Engine::ResourceManager::getTexture("Textures/PNG/CharacterLeft_Jump.png");
+	Engine::Color color;
+	color.r = 255;
+	color.g = 255;
+	color.b = 255;
+	color.a = 255;
+
+	_spriteBatch.draw(pos, uv, texture.id, 0.0f, color);
+
+	for (int i = 0; i < _bullets.size(); i++) {
+		_bullets[i].draw(_spriteBatch);
 	}
 
-	glBindTexture(GL_TEXTURE_2D, 0);
-	_colorProgram.unuse();
+	_spriteBatch.end();
+	_spriteBatch.renderBatch();
 
+
+	//Unbind texture
+	glBindTexture(GL_TEXTURE_2D, 0);
+	//Disable the shader
+	_colorProgram.unuse();
+	//Swap our buffer and draw everything to the screen
 	_window.swapBuffer();
 
 }
