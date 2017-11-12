@@ -9,8 +9,12 @@
 #include <Engine/Timing.h>
 #include <Engine/Camera2D.h>
 #include <Engine/InputManager.h>
+#include <Engine/SpriteBatch.h>
 
 #include "Level.h"
+#include "Human.h"
+#include "Player.h"
+
 
 enum class GameState{PLAY,PAUSE,QUIT};
 
@@ -28,6 +32,8 @@ private:
 	void initLevel();
 	void processInput();
 	void gameLoop();
+	void updateAgents(float deltaTime);
+	void updateBullets(float deltaTime);
 	void drawGame();
 
 	int _screenWidth;
@@ -37,7 +43,9 @@ private:
 	Engine::GLSLProgram _colorProgram;
 	Engine::FpsLimiter _fpsLimiter;
 	Engine::Camera2D _camera;
+
 	Engine::InputManager _inputManager;
+	Engine::SpriteBatch _agentSpriteBatch;
 
 	GameState _currentState;
 
@@ -46,5 +54,11 @@ private:
 
 	float _maxFPS;
 	float _currentFPS;
+
+	Player* _player;
+	std::vector<Human*> _humans;
+	std::vector<Zombie*> _zombie;
+	std::vector<Bullet> _bullets;
+	
 };
 

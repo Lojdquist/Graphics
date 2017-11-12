@@ -1,5 +1,7 @@
 #include "ZombieGame.h"
 
+const float HUMAN_SPEED = 5.0f;
+
 
 
 ZombieGame::ZombieGame()  : _screenWidth(800), 
@@ -14,12 +16,46 @@ ZombieGame::ZombieGame()  : _screenWidth(800),
 
 ZombieGame::~ZombieGame(){
 
+	for (int i = 0; i < _levels.size(); i++) {
+		delete _levels[i];
+	}
+
+	for (int i = 0; i < _humans.size(); i++) {
+		delete _humans[i];
+	}
+
+	for (int i = 0; i < _zombie.size(); i++) {
+		delete _zombie[i];
+	}
 }
 
 void ZombieGame::run(){
 	initSystems();
 	initLevel();
 	gameLoop();
+}
+
+void ZombieGame::updateAgents(float deltaTime){
+
+	for (int i = 0; i < _humans.size(); i++) {
+		_humans[i]->update(_levels[_currentLevel]->getLevelData(),
+							_humans,
+							_zombie,
+							deltaTime);
+	}
+}
+
+void ZombieGame::updateBullets(float deltaTime){
+	//Update and collide with world
+	for (int i = 0; i < _bullets.size();) {
+		if (_bullets[i].update(_levels[_currentLevel]->getLevelData(), deltaTime)) {
+			_bullets[i] = _bullets.back();
+			_bullets.pop_back();
+		}
+		else {
+			i++;
+		}
+	}
 }
 
 void ZombieGame::initSystems(){
@@ -34,6 +70,9 @@ void ZombieGame::initSystems(){
 	_fpsLimiter.init(_maxFPS);
 
 	_camera.init(_screenWidth,_screenHeight);
+
+	//init spriteBatch
+	_agentSpriteBatch.init();
 }
 
 void ZombieGame::initShaders(){
@@ -48,6 +87,18 @@ void ZombieGame::initShaders(){
 void ZombieGame::initLevel(){
 	_levels.push_back(new Level("Levels/level1.txt"));
 	_currentLevel = 0;
+
+	_player = new Player();
+	_player->init(HUMAN_SPEED, _levels[_currentLevel]->getStartpos(), &_inputManager, &_camera, &_bullets);
+
+	_humans.push_back(_player);
+
+
+	//Set up the players guns
+	const float BULLET_SPEED = 20.0f;
+	_player->addGun(new Gun("Magnum", 10, 1, 0.0f, 30.0f, BULLET_SPEED));
+	_player->addGun(new Gun("Shotgun", 30, 12, 0.5f, 4.0f, BULLET_SPEED));
+	_player->addGun(new Gun("MP5", 2, 1, 0.2f, 20.0f, BULLET_SPEED));
 }
 
 void ZombieGame::processInput(){
@@ -85,25 +136,13 @@ void ZombieGame::processInput(){
 			break;
 		}
 	}
-
-	if (_inputManager.isKeyPressed(SDLK_w)) {
-		_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, CAMERA_SPEED));
-	}
-	if (_inputManager.isKeyPressed(SDLK_s)) {
-		_camera.setPosition(_camera.getPosition() + glm::vec2(0.0f, -CAMERA_SPEED));
-	}
-	if (_inputManager.isKeyPressed(SDLK_a)) {
-		_camera.setPosition(_camera.getPosition() + glm::vec2(-CAMERA_SPEED, 0.0f));
-	}
-	if (_inputManager.isKeyPressed(SDLK_d)) {
-		_camera.setPosition(_camera.getPosition() + glm::vec2(CAMERA_SPEED, 0.0f));
-	}
-
 }
 
 void ZombieGame::gameLoop(){
 
 	_camera.setPosition(_levels[_currentLevel]->getStartpos());
+
+	float deltaTime = 1.0f;
 
 	while (_currentState != GameState::QUIT) {
 		_fpsLimiter.begin();
@@ -111,7 +150,7 @@ void ZombieGame::gameLoop(){
 		processInput();
 
 
-		_camera.update();
+		
 
 		_currentFPS = _fpsLimiter.end();
 		static int frameCounter = 0;
@@ -119,6 +158,13 @@ void ZombieGame::gameLoop(){
 			frameCounter = 0;
 		}
 		frameCounter++;
+
+		updateBullets(deltaTime);
+
+
+		_camera.setPosition(_player->getPostion());
+		updateAgents(deltaTime);
+		_camera.update();
 
 		drawGame();
 
@@ -147,6 +193,23 @@ void ZombieGame::drawGame(){
 	glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
 
 	_levels[_currentLevel]->draw();
+
+	_agentSpriteBatch.begin();
+
+	const glm::vec2 agentDims(AGENT_RADIUS * 2.0f);
+
+	for (int i = 0; i < _humans.size(); i++) {
+		if (_camera.isBoxInView(_humans[i]->getPostion(), agentDims)) {
+			_humans[i]->draw(_agentSpriteBatch);
+		}
+	}
+
+	for (int i = 0; i < _bullets.size(); i++) {
+		_bullets[i].draw(_agentSpriteBatch);
+	}
+
+	_agentSpriteBatch.end();
+	_agentSpriteBatch.renderBatch();
 
 	//Unbind texture
 	glBindTexture(GL_TEXTURE_2D, 0);
