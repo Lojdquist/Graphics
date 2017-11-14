@@ -1,13 +1,3 @@
-﻿  ZombieGame.cpp
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(19): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(23): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(27): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(28): warning C4150: deletion of pointer to incomplete type 'Zombie'; no destructor called
-  c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\bullet.h(9): note: see declaration of 'Zombie'
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(40): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(117): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(201): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(207): warning C4018: '<': signed/unsigned mismatch
+﻿  Player.cpp
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.pdb (Partial PDB)

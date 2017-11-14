@@ -76,4 +76,5 @@ void Player::update(const std::vector<std::string>& levelData, std::vector<Human
 										deltaTime);
 	}
 
+	collideWithLevel(levelData);
 }

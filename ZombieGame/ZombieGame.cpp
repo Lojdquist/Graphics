@@ -1,7 +1,16 @@
 #include "ZombieGame.h"
 
-const float HUMAN_SPEED = 5.0f;
+#include<random>
+#include<ctime>
+#include<algorithm>
+#include <glm/glm.hpp>
+#include<glm/gtx/rotate_vector.hpp>
+#include <iostream>
 
+
+const float HUMAN_SPEED = 1.3f;
+const float ZOMBIE_SPEED = 1.0f;
+const float PLAYER_SPEED = 5.0f;
 
 
 ZombieGame::ZombieGame()  : _screenWidth(800), 
@@ -32,6 +41,8 @@ ZombieGame::~ZombieGame(){
 void ZombieGame::run(){
 	initSystems();
 	initLevel();
+
+	std::cout << _humans.size() << std::endl;
 	gameLoop();
 }
 
@@ -42,6 +53,14 @@ void ZombieGame::updateAgents(float deltaTime){
 							_humans,
 							_zombie,
 							deltaTime);
+	}
+
+
+	//Collide with player
+	for (int i = 0; i < _humans.size(); i++) {
+		for (int j = i + 1; j < _humans.size(); j++) {
+			_humans[i]->collideWithAgent(_humans[j]);
+		}
 	}
 }
 
@@ -54,6 +73,39 @@ void ZombieGame::updateBullets(float deltaTime){
 		}
 		else {
 			i++;
+		}
+	}
+
+	bool wasBulletRemoved;
+
+	for (int i = 0; i < _bullets.size(); i++) {
+		wasBulletRemoved = false;
+		
+
+		for (int j = 1; j < _humans.size(); j++) {
+
+			//Check collision
+			if (_bullets[i].collideWithAgent(_humans[j])) {
+				//Damage Human, and kill it if its out of health
+				if (_humans[j]->applyDamage(_bullets[i].getDamage())) {
+					//If the human died, remove him
+					delete _humans[j];
+					_humans[j] = _humans.back();
+					_humans.pop_back();
+				}
+				else {
+					j++;
+				}
+
+				//Remove the bullet
+				_bullets[i] = _bullets.back();
+				_bullets.pop_back();
+
+				//Make sure we don't skip a bullet
+				i--;
+				break;
+
+			}
 		}
 	}
 }
@@ -89,16 +141,29 @@ void ZombieGame::initLevel(){
 	_currentLevel = 0;
 
 	_player = new Player();
-	_player->init(HUMAN_SPEED, _levels[_currentLevel]->getStartpos(), &_inputManager, &_camera, &_bullets);
+	_player->init(PLAYER_SPEED, _levels[_currentLevel]->getStartpos(), &_inputManager, &_camera, &_bullets);
 
 	_humans.push_back(_player);
-
 
 	//Set up the players guns
 	const float BULLET_SPEED = 20.0f;
 	_player->addGun(new Gun("Magnum", 10, 1, 0.0f, 30.0f, BULLET_SPEED));
 	_player->addGun(new Gun("Shotgun", 30, 12, 0.5f, 4.0f, BULLET_SPEED));
 	_player->addGun(new Gun("MP5", 2, 1, 0.2f, 20.0f, BULLET_SPEED));
+
+	std::mt19937 randomEngine;
+	randomEngine.seed(time(nullptr));
+
+	std::uniform_int_distribution<int> randX(2, _levels[_currentLevel]->getWidth() - 2);
+	std::uniform_int_distribution<int> randY(2, _levels[_currentLevel]->getHeight() -2);
+
+	//Add random humans
+	for (int i = 0; i < _levels[_currentLevel]->getNumHumans(); i++) {
+		_humans.push_back(new Human);
+		glm::vec2 pos(randX(randomEngine) * TILE_WIDTH, randY(randomEngine)*TILE_WIDTH);
+		_humans.back()->init(HUMAN_SPEED,pos);
+	}
+
 }
 
 void ZombieGame::processInput(){
@@ -143,6 +208,8 @@ void ZombieGame::gameLoop(){
 	_camera.setPosition(_levels[_currentLevel]->getStartpos());
 
 	float deltaTime = 1.0f;
+	const float CAMERA_SCALE = 1.0f / 3.0f;
+	_camera.setScale(CAMERA_SCALE);
 
 	while (_currentState != GameState::QUIT) {
 		_fpsLimiter.begin();
@@ -152,7 +219,6 @@ void ZombieGame::gameLoop(){
 
 		
 
-		_currentFPS = _fpsLimiter.end();
 		static int frameCounter = 0;
 		if (frameCounter == 100) {
 			frameCounter = 0;
@@ -167,6 +233,8 @@ void ZombieGame::gameLoop(){
 		_camera.update();
 
 		drawGame();
+		_currentFPS = _fpsLimiter.end();
+		std::cout << _currentFPS << std::endl;
 
 	}
 }
