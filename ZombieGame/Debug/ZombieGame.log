@@ -1,3 +1,7 @@
-﻿  Player.cpp
+﻿  Level.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\level.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\level.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\level.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\level.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.pdb (Partial PDB)

@@ -55,6 +55,39 @@ void ZombieGame::updateAgents(float deltaTime){
 							deltaTime);
 	}
 
+	for (int i = 0; i < _zombie.size(); i++) {
+		_zombie[i]->update(_levels[_currentLevel]->getLevelData(),
+							_humans,
+							_zombie,
+							deltaTime);
+	}
+
+	//Update Zombie collisions
+	for (int i = 0; i < _zombie.size(); i++) {
+		
+		//Collide with other zombies
+		for (int j = i + 1; j < _zombie.size(); j++) {
+			_zombie[i]->collideWithAgent(_zombie[j]);
+		}
+
+		//Collide with human
+		for (int j = 1; j < _humans.size(); j++) {
+
+			if (_zombie[i]->collideWithAgent(_humans[j])) {
+				//Add new zombie
+				_zombie.push_back(new Zombie);
+				_zombie.back()->init(ZOMBIE_SPEED, _humans[j]->getPostion());
+
+				//Delete the human
+				delete _humans[j];
+				_humans[j] = _humans.back();
+				_humans.pop_back();
+			}
+
+			//Zombie collide with player code here
+		}
+	}
+
 
 	//Collide with player
 	for (int i = 0; i < _humans.size(); i++) {
@@ -80,18 +113,20 @@ void ZombieGame::updateBullets(float deltaTime){
 
 	for (int i = 0; i < _bullets.size(); i++) {
 		wasBulletRemoved = false;
-		
 
-		for (int j = 1; j < _humans.size(); j++) {
+		//Loop through zombies
+		for (int j = 0; j < _zombie.size();) {
 
 			//Check collision
-			if (_bullets[i].collideWithAgent(_humans[j])) {
-				//Damage Human, and kill it if its out of health
-				if (_humans[j]->applyDamage(_bullets[i].getDamage())) {
-					//If the human died, remove him
-					delete _humans[j];
-					_humans[j] = _humans.back();
-					_humans.pop_back();
+			if (_bullets[i].collideWithAgent(_zombie[j])) {
+
+				//Damage zombie and kill it if out of health
+				if (_zombie[j]->applyDamage(_bullets[i].getDamage())) {
+					//If zombie died, remove
+					delete _zombie[j];
+					_zombie[j] = _zombie.back();
+					_zombie.pop_back();
+
 				}
 				else {
 					j++;
@@ -100,11 +135,42 @@ void ZombieGame::updateBullets(float deltaTime){
 				//Remove the bullet
 				_bullets[i] = _bullets.back();
 				_bullets.pop_back();
-
-				//Make sure we don't skip a bullet
-				i--;
+				wasBulletRemoved = true;
+				i--; // Makes sure we don't skip a bullet
+				//Since the bullet died, no need to loop more
 				break;
+			}
+			else {
+				j++;
+			}
+		}
 
+		if (!wasBulletRemoved) {
+			for (int j = 1; j < _humans.size();) {
+
+				//Check collision
+				if (_bullets[i].collideWithAgent(_humans[j])) {
+					//Damage Human, and kill it if its out of health
+					if (_humans[j]->applyDamage(_bullets[i].getDamage())) {
+						//If the human died, remove him
+						delete _humans[j];
+						_humans[j] = _humans.back();
+						_humans.pop_back();
+					}
+					else {
+						j++;
+					}
+
+					//Remove the bullet
+					_bullets[i] = _bullets.back();
+					_bullets.pop_back();
+
+					//Make sure we don't skip a bullet
+					i--;
+					break;
+				}else {
+					j++;
+				}
 			}
 		}
 	}
@@ -162,6 +228,13 @@ void ZombieGame::initLevel(){
 		_humans.push_back(new Human);
 		glm::vec2 pos(randX(randomEngine) * TILE_WIDTH, randY(randomEngine)*TILE_WIDTH);
 		_humans.back()->init(HUMAN_SPEED,pos);
+	}
+
+	//Add the zombies
+	const std::vector<glm::vec2>& zombiePositions = _levels[_currentLevel]->getZombieStartPos();
+	for (int i = 0; i < zombiePositions.size(); i++) {
+		_zombie.push_back(new Zombie);
+		_zombie.back()->init(ZOMBIE_SPEED, zombiePositions[i]);
 	}
 
 }
@@ -234,7 +307,7 @@ void ZombieGame::gameLoop(){
 
 		drawGame();
 		_currentFPS = _fpsLimiter.end();
-		std::cout << _currentFPS << std::endl;
+		//std::cout << _currentFPS << std::endl;
 
 	}
 }
@@ -266,9 +339,17 @@ void ZombieGame::drawGame(){
 
 	const glm::vec2 agentDims(AGENT_RADIUS * 2.0f);
 
+	//Draw all humans
 	for (int i = 0; i < _humans.size(); i++) {
 		if (_camera.isBoxInView(_humans[i]->getPostion(), agentDims)) {
 			_humans[i]->draw(_agentSpriteBatch);
+		}
+	}
+
+	//Draw all Zombies
+	for (int i = 0; i < _zombie.size(); i++) {
+		if (_camera.isBoxInView(_zombie[i]->getPostion(), agentDims)) {
+			_zombie[i]->draw(_agentSpriteBatch);
 		}
 	}
 

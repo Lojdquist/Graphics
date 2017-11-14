@@ -13,6 +13,7 @@
 
 #include "Level.h"
 #include "Human.h"
+#include "Zombie.h"
 #include "Player.h"
 
 

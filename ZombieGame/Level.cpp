@@ -41,11 +41,18 @@ Level::Level(const std::string& filename){
 			//Get tile
 			char tile = _levelData[y][x];
 
+			std::cout << tile;
+
 
 			glm::vec4 destRect(x * TILE_WIDTH, y * TILE_WIDTH, TILE_WIDTH, TILE_WIDTH);
 
 			switch (tile){
 			case 'B':
+				_spriteBatch.draw(destRect,
+					uvRect,
+					Engine::ResourceManager::getTexture("Textures/red_bricks.png").id,
+					0.0f,
+					whiteColor);
 				break;
 			case 'R':
 				_spriteBatch.draw(destRect,
@@ -84,6 +91,7 @@ Level::Level(const std::string& filename){
 				break;
 			}
 		}
+		std::cout << std::endl;
 	}
 
 	_spriteBatch.end();
