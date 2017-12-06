@@ -29,7 +29,7 @@ Level::Level(const std::string& filename){
 
 	glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
 
-	Engine::Color whiteColor;
+	Engine::ColorRGBA8 whiteColor;
 	whiteColor.r = 255;
 	whiteColor.g = 255;
 	whiteColor.b = 255;

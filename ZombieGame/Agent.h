@@ -43,7 +43,7 @@ protected:
 
 	glm::vec2 _position;
 	glm::vec2 _direction = glm::vec2(1.0f, 0.0f);
-	Engine::Color _color;
+	Engine::ColorRGBA8 _color;
 	float _speed;
 	float _health;
 	GLuint _textureID;

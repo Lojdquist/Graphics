@@ -11,6 +11,13 @@ namespace Engine {
 
 	}
 
+	void InputManager::update(){
+
+		for (auto& it : _keyMap) {
+			_prevKeyMap[it.first] = it.second;
+		}
+	}
+
 	void InputManager::pressKey(unsigned int keyID){
 		_keyMap[keyID] = true;
 	}
@@ -24,7 +31,7 @@ namespace Engine {
 		_mouseCoords.y = y;
 	}
 
-	bool InputManager::isKeyPressed(unsigned int keyID){
+	bool InputManager::isKeyDown(unsigned int keyID){
 		auto it = _keyMap.find(keyID);
 
 		if(it != _keyMap.end()){
@@ -33,5 +40,21 @@ namespace Engine {
 		else{
 			return false;
 		}
+	}
+
+	bool InputManager::isKeyPressed(unsigned int keyID){
+		return isKeyDown(keyID) && !wasKeyDown(keyID);
+	}
+
+	bool InputManager::wasKeyDown(unsigned int keyID){
+		auto it = _prevKeyMap.find(keyID);
+
+		if (it != _prevKeyMap.end()) {
+			return it->second;
+		}
+		else {
+			return false;
+		}
+
 	}
 }

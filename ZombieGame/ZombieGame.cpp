@@ -277,15 +277,25 @@ void ZombieGame::processInput(){
 }
 
 void ZombieGame::gameLoop(){
+	const float DESIRED_FPS = 60;
+	const int MAX_PHYSICS_STEPS = 6;
+	const float CAMERA_SCALE = 1.0f / 3.0f;
+	const float MS_PER_SECOND = 1000;
+	const float DESIRED_FRAMETIME = MS_PER_SECOND / DESIRED_FPS;
+	const float MAX_DELTA_TIME = 1.0f;
+
+	float previousTicks = SDL_GetTicks();
 
 	_camera.setPosition(_levels[_currentLevel]->getStartpos());
-
-	float deltaTime = 1.0f;
-	const float CAMERA_SCALE = 1.0f / 3.0f;
 	_camera.setScale(CAMERA_SCALE);
 
 	while (_currentState != GameState::QUIT) {
 		_fpsLimiter.begin();
+
+		float newTicks = SDL_GetTicks();
+		float frameTime = SDL_GetTicks() - previousTicks;
+		previousTicks = newTicks;
+		float totalDeltaTime = frameTime / DESIRED_FRAMETIME;
 
 		processInput();
 
@@ -298,11 +308,16 @@ void ZombieGame::gameLoop(){
 		}
 		frameCounter++;
 
-		updateBullets(deltaTime);
-
+		int i = 0;
+		while (totalDeltaTime > 0.0f && i < MAX_PHYSICS_STEPS){
+			float deltaTime = std::min(totalDeltaTime, MAX_DELTA_TIME);
+			updateBullets(deltaTime);
+			updateAgents(deltaTime);
+			totalDeltaTime -= deltaTime;
+			i++;
+		}
 
 		_camera.setPosition(_player->getPostion());
-		updateAgents(deltaTime);
 		_camera.update();
 
 		drawGame();

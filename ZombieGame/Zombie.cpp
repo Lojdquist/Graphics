@@ -19,10 +19,7 @@ void Zombie::init(float speed, glm::vec2 pos){
 	_position = pos;
 	_health = 50;
 	//Set color green
-	_color.r = 0;
-	_color.g = 255;
-	_color.b = 0;
-	_color.a = 255;
+	_color = Engine::ColorRGBA8(0, 255, 0 ,255);
 
 	_textureID = Engine::ResourceManager::getTexture("Textures/zombie.png").id;
 }

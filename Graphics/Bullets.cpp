@@ -20,7 +20,7 @@ void Bullets::draw(Engine::SpriteBatch & spriteBatch){
 	glm::vec4 uv(0.0f, 0.0f, 1.0f, 1.0f);
 	static Engine::GLTexture texture = Engine::ResourceManager::getTexture("Textures/PNG/CharacterLeft_Jump.png");
 
-	Engine::Color color;
+	Engine::ColorRGBA8 color;
 	color.r = 255;
 	color.g = 255;
 	color.b = 255;

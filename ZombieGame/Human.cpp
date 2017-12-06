@@ -23,10 +23,8 @@ void Human::init(float speed, glm::vec2 pos){
 	static std::uniform_int_distribution<int> ranInt(1, 40);
 
 	_health = 20;
-	_color.r = 255;
-	_color.g = 255;
-	_color.b = 255;
-	_color.a = 255;
+
+	_color = Engine::ColorRGBA8(255, 255, 255, 255);
 
 	_speed = speed;
 	_position = pos;
