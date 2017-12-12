@@ -17,6 +17,6 @@ public:
 						float deltaTime) override;
 
 private:
-	int _frames = 0;
+	int m_frames = 0;
 };
 

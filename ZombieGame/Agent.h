@@ -30,7 +30,7 @@ public:
 
 
 
-	glm::vec2 getPostion() const { return _position; }
+	glm::vec2 getPostion() const { return m_position; }
 
 protected:
 
@@ -41,11 +41,11 @@ protected:
 
 	void collideWithTile(glm::vec2 tilePos);
 
-	glm::vec2 _position;
-	glm::vec2 _direction = glm::vec2(1.0f, 0.0f);
-	Engine::ColorRGBA8 _color;
-	float _speed;
-	float _health;
-	GLuint _textureID;
+	glm::vec2 m_position;
+	glm::vec2 m_direction = glm::vec2(1.0f, 0.0f);
+	Engine::ColorRGBA8 m_color;
+	float m_speed;
+	float m_health;
+	GLuint m_textureID;
 };
 

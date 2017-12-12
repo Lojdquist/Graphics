@@ -17,15 +17,15 @@ Level::Level(const std::string& filename){
 
 	std::string tmp;
 
-	file >> tmp >> _numHumans;
+	file >> tmp >> m_numHumans;
 	std::getline(file, tmp); //Throw away rest of first line.
 
 	while (std::getline(file, tmp)) {
-		_levelData.emplace_back(tmp);
+		m_levelData.emplace_back(tmp);
 	}
 	
-	_spriteBatch.init();
-	_spriteBatch.begin();
+	m_spriteBatch.init();
+	m_spriteBatch.begin();
 
 	glm::vec4 uvRect(0.0f, 0.0f, 1.0f, 1.0f);
 
@@ -36,10 +36,10 @@ Level::Level(const std::string& filename){
 	whiteColor.a = 255;
 
 	//Render all tiles
-	for (int y = 0; y < _levelData.size(); y++){
-		for (int x = 0; x < _levelData[0].size(); x++){
+	for (int y = 0; y < m_levelData.size(); y++){
+		for (int x = 0; x < m_levelData[0].size(); x++){
 			//Get tile
-			char tile = _levelData[y][x];
+			char tile = m_levelData[y][x];
 
 			std::cout << tile;
 
@@ -48,41 +48,41 @@ Level::Level(const std::string& filename){
 
 			switch (tile){
 			case 'B':
-				_spriteBatch.draw(destRect,
+				m_spriteBatch.draw(destRect,
 					uvRect,
 					Engine::ResourceManager::getTexture("Textures/red_bricks.png").id,
 					0.0f,
 					whiteColor);
 				break;
 			case 'R':
-				_spriteBatch.draw(destRect,
+				m_spriteBatch.draw(destRect,
 					uvRect,
 					Engine::ResourceManager::getTexture("Textures/red_bricks.png").id,
 					0.0f,
 					whiteColor);
 				break;
 			case 'G':
-				_spriteBatch.draw(destRect,
+				m_spriteBatch.draw(destRect,
 					uvRect,
 					Engine::ResourceManager::getTexture("Textures/glass.png").id,
 					0.0f,
 					whiteColor);
 				break;
 			case 'L':
-				_spriteBatch.draw(destRect,
+				m_spriteBatch.draw(destRect,
 					uvRect,
 					Engine::ResourceManager::getTexture("Textures/light_bricks.png").id,
 					0.0f,
 					whiteColor);
 				break;
 			case '@':
-				_levelData[y][x] = '.'; // So we dont collide with a @
-				_startPlayerPos.x = x * TILE_WIDTH;
-				_startPlayerPos.y = y * TILE_WIDTH;
+				m_levelData[y][x] = '.'; // So we dont collide with a @
+				m_startPlayerPos.x = x * TILE_WIDTH;
+				m_startPlayerPos.y = y * TILE_WIDTH;
 				break;
 			case 'Z':
-				_levelData[y][x] = '.'; // So we dont collide with a Z
-				_zombieStartPos.emplace_back(x * TILE_WIDTH, y * TILE_WIDTH);
+				m_levelData[y][x] = '.'; // So we dont collide with a Z
+				m_zombieStartPos.emplace_back(x * TILE_WIDTH, y * TILE_WIDTH);
 				break;
 			case '.':
 				break;
@@ -94,7 +94,7 @@ Level::Level(const std::string& filename){
 		std::cout << std::endl;
 	}
 
-	_spriteBatch.end();
+	m_spriteBatch.end();
 }
 
 
@@ -103,5 +103,5 @@ Level::~Level(){
 }
 
 void Level::draw(){
-	_spriteBatch.renderBatch();
+	m_spriteBatch.renderBatch();
 }

@@ -19,13 +19,13 @@ public:
 private:
 	void fire(const glm::vec2& direction, const glm::vec2& position, std::vector<Bullet>& bullets);
 
-	std::string _name;
-	int _fireRate;
-	int _bulletsPerShot;
-	float _spread;
-	float _bulletDamage;
-	float _bulletSpeed;
+	std::string m_name;
+	int m_fireRate;
+	int m_bulletsPerShot;
+	float m_spread;
+	float m_bulletDamage;
+	float m_bulletSpeed;
 
-	float _frameCounter;
+	float m_frameCounter;
 };
 
