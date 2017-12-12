@@ -187,10 +187,17 @@ void ZombieGame::initSystems(){
 	initShaders();
 	_fpsLimiter.init(_maxFPS);
 
-	_camera.init(_screenWidth,_screenHeight);
-
 	//init spriteBatch
 	_agentSpriteBatch.init();
+	_hudSpriteBatch.init();
+
+	//init spriteFont
+	_spriteFont = new Engine::SpriteFont("Fonts/ostrich-regular.ttf", 128);
+
+	//Set up the camera
+	_camera.init(_screenWidth, _screenHeight);
+	_hudCamera.init(_screenWidth,_screenHeight);
+	_hudCamera.setPosition(glm::vec2(_screenWidth/2, _screenHeight/2));
 }
 
 void ZombieGame::initShaders(){
@@ -320,6 +327,8 @@ void ZombieGame::gameLoop(){
 		_camera.setPosition(_player->getPostion());
 		_camera.update();
 
+		_hudCamera.update();
+
 		drawGame();
 		_currentFPS = _fpsLimiter.end();
 		//std::cout << _currentFPS << std::endl;
@@ -375,10 +384,36 @@ void ZombieGame::drawGame(){
 	_agentSpriteBatch.end();
 	_agentSpriteBatch.renderBatch();
 
+	//Renders the heads up display
+	drawHud();
+
 	//Unbind texture
 	glBindTexture(GL_TEXTURE_2D, 0);
 	//Disable the shader
 	_colorProgram.unuse();
 	//Swap our buffer and draw everything to the screen
 	_window.swapBuffer();
+}
+
+void ZombieGame::drawHud(){
+	char buffer[256];
+
+	glm::mat4 projectionMatrix = _hudCamera.getCameraMatrix();
+	GLint pUniform = _colorProgram.getUniformLocation("P");
+	glUniformMatrix4fv(pUniform, 1, GL_FALSE, &projectionMatrix[0][0]);
+
+	_hudSpriteBatch.begin();
+
+	sprintf_s(buffer, "num Humans %d", _humans.size());
+
+	_spriteFont->draw(_hudSpriteBatch, buffer, glm::vec2(0,0), 
+						glm::vec2(0.5), 0.0f, Engine::ColorRGBA8(255,255,255,255));
+
+	sprintf_s(buffer, "num Zombies %d", _zombie.size());
+
+	_spriteFont->draw(_hudSpriteBatch, buffer, glm::vec2(0, 48),
+		glm::vec2(0.5), 0.0f, Engine::ColorRGBA8(255, 255, 255, 255));
+
+	_hudSpriteBatch.end();
+	_hudSpriteBatch.renderBatch();
 }

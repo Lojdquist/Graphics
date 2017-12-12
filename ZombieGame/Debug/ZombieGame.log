@@ -1,2 +1,25 @@
-﻿  ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
+﻿  ZombieGame.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(28): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(36): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(51): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(58): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(66): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(74): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(94): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(102): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(114): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(118): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(149): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(228): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(242): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(262): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(294): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(302): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(367): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(374): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(380): warning C4018: '<': signed/unsigned mismatch
+  ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.pdb (Partial PDB)

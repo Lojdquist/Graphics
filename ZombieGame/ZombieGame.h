@@ -10,6 +10,7 @@
 #include <Engine/Camera2D.h>
 #include <Engine/InputManager.h>
 #include <Engine/SpriteBatch.h>
+#include <Engine/SpriteFont.h>
 
 #include "Level.h"
 #include "Human.h"
@@ -36,6 +37,7 @@ private:
 	void updateAgents(float deltaTime);
 	void updateBullets(float deltaTime);
 	void drawGame();
+	void drawHud();
 
 	int _screenWidth;
 	int _screenHeight;
@@ -44,9 +46,14 @@ private:
 	Engine::GLSLProgram _colorProgram;
 	Engine::FpsLimiter _fpsLimiter;
 	Engine::Camera2D _camera;
+	Engine::Camera2D _hudCamera;
 
 	Engine::InputManager _inputManager;
 	Engine::SpriteBatch _agentSpriteBatch;
+	Engine::SpriteBatch _hudSpriteBatch;
+	
+
+	Engine::SpriteFont* _spriteFont;
 
 	GameState _currentState;
 
