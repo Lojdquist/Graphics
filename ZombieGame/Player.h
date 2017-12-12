@@ -25,11 +25,11 @@ public:
 				float deltaTime) override;
 
 private:
-	Engine::InputManager* _inputManager;
-	Engine::Camera2D* _camera;
-	std::vector<Bullet>* _bullets;
+	Engine::InputManager* m_inputManager;
+	Engine::Camera2D* m_camera;
+	std::vector<Bullet>* m_bullets;
 
-	std::vector<Gun*> _guns;
+	std::vector<Gun*> m_guns;
 	int _currentGunIndex = -1;
 };
 
