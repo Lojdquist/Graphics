@@ -30,6 +30,6 @@ private:
 	std::vector<Bullet>* _bullets;
 
 	std::vector<Gun*> _guns;
-	int _currentGunIndex;
+	int _currentGunIndex = -1;
 };
 

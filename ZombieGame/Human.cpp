@@ -8,7 +8,7 @@
 
 
 
-Human::Human() : _frames(0)
+Human::Human()
 {
 }
 

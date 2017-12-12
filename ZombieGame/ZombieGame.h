@@ -30,43 +30,52 @@ public:
 
 private:
 	void initSystems();
+
 	void initShaders();
+
 	void initLevel();
+
 	void processInput();
+
 	void gameLoop();
+
 	void updateAgents(float deltaTime);
+
 	void updateBullets(float deltaTime);
+
 	void drawGame();
+
 	void drawHud();
 
-	int _screenWidth;
-	int _screenHeight;
+	int m_screenWidth = 1024;
+	int m_screenHeight = 768;
 
-	Engine::Window _window;
-	Engine::GLSLProgram _colorProgram;
-	Engine::FpsLimiter _fpsLimiter;
-	Engine::Camera2D _camera;
-	Engine::Camera2D _hudCamera;
+	Engine::Window m_window;
+	Engine::GLSLProgram m_colorProgram;
+	Engine::FpsLimiter m_fpsLimiter;
+	Engine::Camera2D m_camera;
+	Engine::Camera2D m_hudCamera;
 
-	Engine::InputManager _inputManager;
-	Engine::SpriteBatch _agentSpriteBatch;
-	Engine::SpriteBatch _hudSpriteBatch;
+	Engine::InputManager m_inputManager;
+
+	Engine::SpriteBatch m_agentSpriteBatch;
+	Engine::SpriteBatch m_hudSpriteBatch;
 	
+	Engine::SpriteFont* m_spriteFont;
 
-	Engine::SpriteFont* _spriteFont;
+	GameState m_currentState = GameState::PLAY;
 
-	GameState _currentState;
+	std::vector<Level*> m_levels;
+	int m_currentLevel = 1;
 
-	std::vector<Level*> _levels;
-	int _currentLevel;
+	float m_maxFPS = 60.0f;
+	float m_currentFPS = 0.0f;
 
-	float _maxFPS;
-	float _currentFPS;
+	Player* m_player;
 
-	Player* _player;
-	std::vector<Human*> _humans;
-	std::vector<Zombie*> _zombie;
-	std::vector<Bullet> _bullets;
+	std::vector<Human*> m_humans;
+	std::vector<Zombie*> m_zombie;
+	std::vector<Bullet> m_bullets;
 	
 };
 

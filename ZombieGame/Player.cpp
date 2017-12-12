@@ -3,7 +3,7 @@
 #include <Engine/ResourceManager.h>
 #include<SDL/SDL.h>
 
-Player::Player() : _currentGunIndex(-1)
+Player::Player()
 {
 }
 
