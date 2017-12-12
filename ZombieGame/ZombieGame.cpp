@@ -300,15 +300,6 @@ void ZombieGame::gameLoop(){
 
 		processInput();
 
-
-		
-
-		static int frameCounter = 0;
-		if (frameCounter == 100) {
-			frameCounter = 0;
-		}
-		frameCounter++;
-
 		int i = 0;
 		while (totalDeltaTime > 0.0f && i < MAX_PHYSICS_STEPS){
 			float deltaTime = std::min(totalDeltaTime, MAX_DELTA_TIME);
@@ -325,7 +316,13 @@ void ZombieGame::gameLoop(){
 
 		drawGame();
 		m_currentFPS = m_fpsLimiter.end();
-		std::cout << m_currentFPS << std::endl;
+
+		static int frameCounter = 0;
+		if (frameCounter == 25) {
+			frameCounter = 0;
+			m_drawFPS = m_currentFPS;
+		}
+		frameCounter++;
 
 	}
 }
@@ -406,6 +403,11 @@ void ZombieGame::drawHud(){
 	sprintf_s(buffer, "num Zombies %d", m_zombie.size());
 
 	m_spriteFont->draw(m_hudSpriteBatch, buffer, glm::vec2(0, 48),
+		glm::vec2(0.5), 0.0f, Engine::ColorRGBA8(255, 255, 255, 255));
+
+	sprintf_s(buffer, "FPS %d", m_drawFPS);
+
+	m_spriteFont->draw(m_hudSpriteBatch, buffer, glm::vec2(0, 700),
 		glm::vec2(0.5), 0.0f, Engine::ColorRGBA8(255, 255, 255, 255));
 
 	m_hudSpriteBatch.end();

@@ -70,6 +70,7 @@ private:
 
 	float m_maxFPS = 60.0f;
 	float m_currentFPS = 0.0f;
+	int m_drawFPS = 0;
 
 	Player* m_player;
 
