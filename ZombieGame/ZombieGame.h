@@ -11,6 +11,7 @@
 #include <Engine/InputManager.h>
 #include <Engine/SpriteBatch.h>
 #include <Engine/SpriteFont.h>
+#include <Engine/AudioEngine.h>
 
 #include "Level.h"
 #include "Human.h"
@@ -62,6 +63,8 @@ private:
 	Engine::SpriteBatch m_hudSpriteBatch;
 	
 	Engine::SpriteFont* m_spriteFont;
+
+	Engine::AudioEngine m_audioEngine;
 
 	GameState m_currentState = GameState::PLAY;
 

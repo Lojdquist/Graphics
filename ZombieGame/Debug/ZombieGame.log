@@ -13,14 +13,14 @@ c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombieg
 c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(108): warning C4018: '<': signed/unsigned mismatch
 c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(112): warning C4018: '<': signed/unsigned mismatch
 c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(143): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(222): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(236): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(256): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(288): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(296): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(323): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(358): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(365): warning C4018: '<': signed/unsigned mismatch
-c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(371): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(225): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(239): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(259): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(291): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(299): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(326): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(361): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(368): warning C4018: '<': signed/unsigned mismatch
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\zombiegame.cpp(374): warning C4018: '<': signed/unsigned mismatch
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.exe
   ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\ZombieGame.pdb (Partial PDB)

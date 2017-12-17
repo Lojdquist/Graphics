@@ -173,6 +173,9 @@ void ZombieGame::updateBullets(float deltaTime){
 void ZombieGame::initSystems(){
 	Engine::init();
 
+	//Initialize sound, must happen after init
+	m_audioEngine.init();
+
 	m_window.create("Zombie Game",m_screenWidth, m_screenHeight, 0);
 
 	//Set the background color
@@ -214,9 +217,9 @@ void ZombieGame::initLevel(){
 
 	//Set up the players guns
 	const float BULLET_SPEED = 20.0f;
-	m_player->addGun(new Gun("Magnum", 10, 1, 0.0f, 30.0f, BULLET_SPEED));
-	m_player->addGun(new Gun("Shotgun", 30, 12, 0.5f, 4.0f, BULLET_SPEED));
-	m_player->addGun(new Gun("MP5", 2, 1, 0.2f, 20.0f, BULLET_SPEED));
+	m_player->addGun(new Gun("Magnum", 10, 1, 0.0f, 30.0f, BULLET_SPEED, m_audioEngine.loudSoundEffect("Sound/pistol.ogg")));
+	m_player->addGun(new Gun("Shotgun", 30, 12, 0.5f, 4.0f, BULLET_SPEED, m_audioEngine.loudSoundEffect("Sound/shotgun.ogg")));
+	m_player->addGun(new Gun("MP5", 5, 1, 0.2f, 20.0f, BULLET_SPEED, m_audioEngine.loudSoundEffect("Sound/minigun.ogg")));
 
 	std::mt19937 randomEngine;
 	randomEngine.seed(time(nullptr));
