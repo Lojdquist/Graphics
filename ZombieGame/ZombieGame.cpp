@@ -205,7 +205,12 @@ void ZombieGame::initSystems(){
 
 	// Initialize particles
 	m_bloodParticleBatch = new Engine::ParticleBatch2D();
-	m_bloodParticleBatch->init(1000, 0.05f, Engine::ResourceManager::getTexture("Textures/particle.png"));
+	m_bloodParticleBatch->init(1000, 0.05f, 
+								Engine::ResourceManager::getTexture("Textures/particle.png"), 
+								[](Engine::Particle2D& p, float deltaTime) {
+		p.position += p.velocity * deltaTime;
+		p.color.a = (GLubyte)(p.life * 255.0f);
+	});
 	m_particleEngine.addParticleBatch(m_bloodParticleBatch);
 }
 
