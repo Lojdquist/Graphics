@@ -1,86 +1,10 @@
-﻿  EngineErrors.cpp
-  AudioEngine.cpp
+﻿  ParticleEngine2D.cpp
+  ParticleBatch2D.cpp
   Generating Code...
-  Compiling...
-  GLSLProgram.cpp
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'WINAPI': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'AMGETERRORTEXTPROCA': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2513: 'int': no variable declared before '='
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ';' before '('
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ')' before ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2062: type 'char' unexpected
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ')' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ';' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2065: 'WCHAR': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2086: 'int DECLSPEC_IMPORT': redefinition
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): note: see declaration of 'DECLSPEC_IMPORT'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C2146: syntax error: missing ';' before identifier 'AMGETERRORTEXTPROC'
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(23): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(29): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(60): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(80): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(106): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\glslprogram.cpp(136): error C3861: 'fatalError': identifier not found
-  Generating Code...
-  Compiling...
-  ImageLoader.cpp
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'WINAPI': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'AMGETERRORTEXTPROCA': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2513: 'int': no variable declared before '='
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ';' before '('
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ')' before ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2062: type 'char' unexpected
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ')' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ';' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2065: 'WCHAR': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2086: 'int DECLSPEC_IMPORT': redefinition
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): note: see declaration of 'DECLSPEC_IMPORT'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C2146: syntax error: missing ';' before identifier 'AMGETERRORTEXTPROC'
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\imageloader.cpp(21): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\imageloader.cpp(27): error C3861: 'fatalError': identifier not found
-  Generating Code...
-  Compiling...
-  Window.cpp
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'WINAPI': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2065: 'AMGETERRORTEXTPROCA': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2513: 'int': no variable declared before '='
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ';' before '('
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2143: syntax error: missing ')' before ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2062: type 'char' unexpected
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(34): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ')' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2143: syntax error: missing ';' before '*'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ')'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2065: 'WCHAR': undeclared identifier
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(35): error C2059: syntax error: ','
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2086: 'int DECLSPEC_IMPORT': redefinition
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(37): note: see declaration of 'DECLSPEC_IMPORT'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(38): error C2146: syntax error: missing ';' before identifier 'DWORD'
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-c:\program files (x86)\windows kits\10\include\10.0.15063.0\um\errors.h(43): error C2146: syntax error: missing ';' before identifier 'AMGETERRORTEXTPROC'
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\window.cpp(36): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\window.cpp(43): error C3861: 'fatalError': identifier not found
-c:\users\trott\documents\visual studio 2017\projects\graphics\engine\window.cpp(49): error C3861: 'fatalError': identifier not found
-  Generating Code...
+glew32.lib(glew32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glew32.lib(glew32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+glu32.lib(GLU32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+glu32.lib(GLU32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+opengl32.lib(OPENGL32.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
+opengl32.lib(OPENGL32.dll) : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  Engine.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Debug\Engine.lib

@@ -12,6 +12,9 @@
 #include <Engine/SpriteBatch.h>
 #include <Engine/SpriteFont.h>
 #include <Engine/AudioEngine.h>
+#include <Engine/ParticleBatch2D.h>
+#include <Engine/ParticleEngine2D.h>
+#include <Engine/ResourceManager.h>
 
 #include "Level.h"
 #include "Human.h"
@@ -48,6 +51,8 @@ private:
 
 	void drawHud();
 
+	void addBlood(const glm::vec2& position, int numParticles);
+
 	int m_screenWidth = 1024;
 	int m_screenHeight = 768;
 
@@ -61,6 +66,9 @@ private:
 
 	Engine::SpriteBatch m_agentSpriteBatch;
 	Engine::SpriteBatch m_hudSpriteBatch;
+
+	Engine::ParticleEngine2D m_particleEngine;
+	Engine::ParticleBatch2D* m_bloodParticleBatch;
 	
 	Engine::SpriteFont* m_spriteFont;
 
