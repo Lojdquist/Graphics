@@ -1,0 +1,54 @@
+﻿  Agent.cpp
+Agent.cpp(63): warning C4018: '<': signed/unsigned mismatch
+Agent.cpp(125): warning C4244: 'argument': conversion from 'float' to 'const unsigned int', possible loss of data
+  Bullet.cpp
+Bullet.cpp(59): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Bullet.cpp(60): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Bullet.cpp(63): warning C4018: '>=': signed/unsigned mismatch
+Bullet.cpp(64): warning C4018: '>=': signed/unsigned mismatch
+  Gun.cpp
+Gun.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+Gun.cpp(42): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Human.cpp
+Human.cpp(21): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+Human.cpp(45): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Level.cpp
+Level.cpp(39): warning C4018: '<': signed/unsigned mismatch
+Level.cpp(40): warning C4018: '<': signed/unsigned mismatch
+Level.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+Level.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+  Player.cpp
+  Zombie.cpp
+Zombie.cpp(42): warning C4018: '<': signed/unsigned mismatch
+  ZombieGame.cpp
+ZombieGame.cpp(22): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(26): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(30): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(45): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(52): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(60): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(63): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(68): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(87): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(88): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(96): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(108): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(112): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(147): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(242): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+ZombieGame.cpp(256): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(276): warning C4244: 'argument': conversion from 'Sint32' to 'float', possible loss of data
+ZombieGame.cpp(308): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+ZombieGame.cpp(316): warning C4244: 'initializing': conversion from 'Uint32' to 'float', possible loss of data
+ZombieGame.cpp(344): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+ZombieGame.cpp(379): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(386): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(392): warning C4018: '<': signed/unsigned mismatch
+ZombieGame.cpp(443): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+ZombieGame.cpp(444): warning C4305: 'argument': truncation from 'double' to 'float'
+     Creating library C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Release\ZombieGame.lib and object C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Release\ZombieGame.exp
+  Generating code
+  All 2378 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ZombieGame.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\Release\ZombieGame.exe

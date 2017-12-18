@@ -1,0 +1,18 @@
+﻿  Agent.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Agent.h(2): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Bullet.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Bullet.h(3): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Gun.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Gun.h(5): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Human.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Agent.h(2): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Level.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Level.h(6): fatal error C1083: Cannot open include file: 'Engine/SpriteBatch.h': No such file or directory
+  main.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\ZombieGame.h(3): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory
+  Player.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Agent.h(2): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  Zombie.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\Agent.h(2): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+  ZombieGame.cpp
+c:\users\trott\documents\visual studio 2017\projects\graphics\zombiegame\ZombieGame.h(3): fatal error C1083: Cannot open include file: 'SDL/SDL.h': No such file or directory

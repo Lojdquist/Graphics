@@ -1,0 +1,23 @@
+﻿  AudioEngine.cpp
+  Camera2D.cpp
+  Engine.cpp
+  EngineErrors.cpp
+  GLSLProgram.cpp
+  ImageLoader.cpp
+  InputManager.cpp
+  IOManager.cpp
+  ParticleBatch2D.cpp
+  ParticleEngine2D.cpp
+  picoPNG.cpp
+  ResourceManager.cpp
+  Sprite.cpp
+Sprite.cpp(24): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Sprite.cpp(25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Sprite.cpp(26): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+Sprite.cpp(27): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SpriteBatch.cpp
+  SpriteFont.cpp
+  TextureCache.cpp
+  Timing.cpp
+  Window.cpp
+  Engine.vcxproj -> C:\Users\trott\Documents\Visual Studio 2017\Projects\Graphics\x64\Release\Engine.lib
