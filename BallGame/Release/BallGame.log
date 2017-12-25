@@ -1,0 +1,25 @@
+﻿  Ball.cpp
+  BallController.cpp
+  BallGame.cpp
+  BallRenderer.cpp
+  Grid.cpp
+  main.cpp
+     Creating library C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\BallGame.lib and object C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\BallGame.exp
+  Generating code
+  All 1957 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+Engine.lib(InputManager.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(InputManager.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(GLSLProgram.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(GLSLProgram.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(SpriteBatch.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(SpriteBatch.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(ResourceManager.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(ResourceManager.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(Engine.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(Engine.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(Window.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(Window.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(SpriteFont.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(SpriteFont.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(Camera2D.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(Camera2D.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(Timing.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(Timing.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(EngineErrors.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(EngineErrors.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(TextureCache.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(TextureCache.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(ImageLoader.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(ImageLoader.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(IOManager.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(IOManager.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+Engine.lib(picoPNG.obj) : warning LNK4099: PDB 'Engine.pdb' was not found with 'Engine.lib(picoPNG.obj)' or at 'C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\Engine.pdb'; linking object as if no debug info
+  BallGame.vcxproj -> C:\Users\Axel\documents\visual studio 2017\Projects\Graphics\Release\BallGame.exe
